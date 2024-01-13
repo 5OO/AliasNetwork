@@ -3,6 +3,7 @@ package org.tims.aliasnetwork.controller;
 import org.springframework.web.bind.annotation.*;
 import org.tims.aliasnetwork.model.Contact;
 import org.tims.aliasnetwork.repository.ContactRepository;
+import org.tims.aliasnetwork.service.ContactService;
 
 import java.util.List;
 
@@ -10,18 +11,18 @@ import java.util.List;
 @RequestMapping("api/contacts")
 public class ContactController {
 
-    private final ContactRepository contactRepository;
+    private final ContactService contactService;
 
-    public ContactController(ContactRepository contactRepository) {
-        this.contactRepository = contactRepository;
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
     }
     @GetMapping
     public List<Contact> getAllContacts() {
-        return contactRepository.findAll();
+        return contactService.getAllContacts();
     }
     @PostMapping
     public Contact createContact(@RequestBody Contact contact) {
-        return contactRepository.save(contact);
+        return contactService.createContact(contact);
     }
 
 }
