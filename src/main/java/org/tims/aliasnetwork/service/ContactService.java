@@ -49,4 +49,11 @@ public List<Contact> getContactsByFirstName(String firstName) {
             throw new EntityNotFoundException(" Contact with id:" + id + " not found");
         }
     }
+
+    public void deleteContact(Long id) {
+        if (!contactRepository.existsById(id)) {
+            throw new EntityNotFoundException("Contact with id # " + id + " not found.");
+        }
+        contactRepository.deleteById(id);
+    }
 }
