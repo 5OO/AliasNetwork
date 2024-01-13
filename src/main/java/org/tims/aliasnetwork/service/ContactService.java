@@ -23,4 +23,7 @@ public class ContactService {
         return contactRepository.save(contact);
     }
 
+    public List<Contact> getContactsByCodeName(String codeName) {
+        return contactRepository.findAllByCodeNameContainingIgnoreCase(codeName);
+    }
 }

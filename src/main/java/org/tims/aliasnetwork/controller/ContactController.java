@@ -23,6 +23,10 @@ public class ContactController {
     public Contact createContact(@RequestBody Contact contact) {
         return contactService.createContact(contact);
     }
+    @GetMapping("/search/{codeName}")
+    public List<Contact> getContactsByCodeName(@PathVariable String codeName) {
+        return contactService.getContactsByCodeName(codeName);
+    }
 
 }
 
