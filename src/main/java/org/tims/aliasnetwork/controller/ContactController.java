@@ -2,7 +2,6 @@ package org.tims.aliasnetwork.controller;
 
 import org.springframework.web.bind.annotation.*;
 import org.tims.aliasnetwork.model.Contact;
-import org.tims.aliasnetwork.repository.ContactRepository;
 import org.tims.aliasnetwork.service.ContactService;
 
 import java.util.List;
