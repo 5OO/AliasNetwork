@@ -7,7 +7,6 @@ import org.tims.aliasnetwork.model.Contact;
 import org.tims.aliasnetwork.repository.ContactRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ContactService {
