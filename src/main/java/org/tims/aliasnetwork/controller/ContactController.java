@@ -1,6 +1,5 @@
 package org.tims.aliasnetwork.controller;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.tims.aliasnetwork.model.Contact;
 import org.tims.aliasnetwork.repository.ContactRepository;
