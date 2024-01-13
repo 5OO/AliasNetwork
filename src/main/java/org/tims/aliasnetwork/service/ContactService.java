@@ -31,4 +31,8 @@ public List<Contact> getContactsByFirstName(String firstName) {
         return contactRepository.findAllByFirstNameContainingIgnoreCase(firstName);
     }
 
+    public List<Contact> getContactsByLastName(String lastName) {
+        return contactRepository.findAllByLastNameContainingIgnoreCase(lastName);
+    }
+
 }

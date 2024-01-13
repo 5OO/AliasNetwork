@@ -31,6 +31,10 @@ public class ContactController {
     public List<Contact> getContactsByFirstName(@PathVariable String firstName) {
         return contactService.getContactsByFirstName(firstName);
     }
+    @GetMapping("/search/lastName/{lastName}")
+    public List<Contact> getContactsByLastName(@PathVariable String lastName) {
+        return contactService.getContactsByLastName(lastName);
+    }
 
 }
 
