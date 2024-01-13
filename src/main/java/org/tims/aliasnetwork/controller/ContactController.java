@@ -36,6 +36,11 @@ public class ContactController {
         return contactService.getContactsByLastName(lastName);
     }
 
+    @PutMapping("/{id}")
+    public Contact updateContact(@PathVariable Long id, @RequestBody Contact updatedContact) {
+        return contactService.updateContact(id, updatedContact);
+    }
+
 }
 
 

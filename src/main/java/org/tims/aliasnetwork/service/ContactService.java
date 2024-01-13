@@ -1,11 +1,13 @@
 package org.tims.aliasnetwork.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tims.aliasnetwork.model.Contact;
 import org.tims.aliasnetwork.repository.ContactRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContactService {
@@ -35,4 +37,16 @@ public List<Contact> getContactsByFirstName(String firstName) {
         return contactRepository.findAllByLastNameContainingIgnoreCase(lastName);
     }
 
+    public Contact updateContact(Long id, Contact updatedContact) {
+        Contact existingContact = contactRepository.findById(id).orElse(null);
+        if (existingContact != null) {
+            existingContact.setFirstName(updatedContact.getFirstName());
+            existingContact.setLastName(updatedContact.getLastName());
+            existingContact.setCodeName(updatedContact.getCodeName());
+            existingContact.setPhoneNumber(updatedContact.getPhoneNumber());
+            return contactRepository.save(existingContact);
+        } else {
+            throw new EntityNotFoundException(" Contact with id:" + id + " not found");
+        }
+    }
 }
