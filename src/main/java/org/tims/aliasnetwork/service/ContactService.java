@@ -26,4 +26,9 @@ public class ContactService {
     public List<Contact> getContactsByCodeName(String codeName) {
         return contactRepository.findAllByCodeNameContainingIgnoreCase(codeName);
     }
+
+public List<Contact> getContactsByFirstName(String firstName) {
+        return contactRepository.findAllByFirstNameContainingIgnoreCase(firstName);
+    }
+
 }
