@@ -21,7 +21,6 @@ export default {
     };
   },
   mounted() {
-    // TODO: Fetch contacts from the backend and set this.contacts
 
     axios.get('http://localhost:8080/api/contacts')
         .then(response => {
