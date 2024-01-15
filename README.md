@@ -72,7 +72,7 @@ Your client, who is involved in managing secret contacts, has a problem. They ur
     ````
 2. Vue.js Frontend
 
-    In the frontend directory, start the Vue.js development server:
+    In the _**frontend**_ directory, start the Vue.js development server:
     ````
     npm run serve
     ````
