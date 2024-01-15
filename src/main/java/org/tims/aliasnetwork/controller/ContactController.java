@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import org.tims.aliasnetwork.model.Contact;
 import org.tims.aliasnetwork.service.ContactService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class ContactController {
         return contactService.getAllContacts();
     }
     @PostMapping
-    public Contact createContact(@RequestBody Contact contact) {
+    public Contact createContact(@Valid @RequestBody Contact contact) {
         return contactService.createContact(contact);
     }
     @GetMapping("/search/codeName/{codeName}")
