@@ -3,7 +3,12 @@
     <!-- Search Form -->
     <h1>Search contacts</h1>
     <div>
-      <input type="text" v-model="searchQuery" placeholder="Search by Code Name">
+      <select v-model="searchCriteria">
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="codeName">Code Name</option>
+      </select>
+      <input type="text" v-model="searchQuery" placeholder="Search">
       <button @click="searchContacts">Search</button>
       <button @click="resetSearch">Reset</button>
     </div>
@@ -29,7 +34,8 @@ export default {
   data() {
     return {
       contacts: [],
-      searchQuery: '' // Search input
+      searchQuery: '', // Search input
+      searchCriteria: 'codeName' // Default search criteria
     };
   },
   methods: {
@@ -46,7 +52,8 @@ export default {
           });
     },
     searchContacts() {
-      axios.get(`http://localhost:8080/api/contacts/search/${this.searchQuery}`)
+      let searchEndpoint = `http://localhost:8080/api/contacts/search/${this.searchCriteria}/${this.searchQuery}`;
+      axios.get(searchEndpoint)
           .then(response => {
             this.contacts = response.data;
           })
