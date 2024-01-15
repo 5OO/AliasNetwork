@@ -1,5 +1,11 @@
 <template>
   <div>
+    <!-- Search Form -->
+    <div>
+      <input type="text" v-model="searchQuery" placeholder="Search by Code Name">
+      <button @click="searchContacts">Search</button>
+      <button @click="resetSearch">Reset</button>
+    </div>
     <h1>Contacts</h1>
     <ul>
       <li v-for="contact in contacts" :key="contact.id">
@@ -21,7 +27,8 @@ export default {
   },
   data() {
     return {
-      contacts: []
+      contacts: [],
+      searchQuery: '' // Search input
     };
   },
   methods: {
@@ -36,6 +43,19 @@ export default {
           .catch(error => {
             console.error('There was an error fetching the contacts:', error);
           });
+    },
+    searchContacts() {
+      axios.get(`http://localhost:8080/api/contacts/search/${this.searchQuery}`)
+          .then(response => {
+            this.contacts = response.data;
+          })
+          .catch(error => {
+            console.error('There was an error fetching the contacts:', error);
+          });
+    },
+    resetSearch() {
+      this.searchQuery = '';
+      this.fetchContacts();
     }
   },
   mounted() {
