@@ -1,5 +1,6 @@
 <template>
   <div class="add-contact-form">
+    <h1>Add new contact:</h1>
     <form @submit.prevent="addContact">
       <div class="form-group">
         <label for="firstName">First Name</label>

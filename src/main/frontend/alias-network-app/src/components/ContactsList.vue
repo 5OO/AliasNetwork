@@ -1,15 +1,16 @@
 <template>
   <div>
     <!-- Search Form -->
+    <h1>Search contacts</h1>
     <div>
       <input type="text" v-model="searchQuery" placeholder="Search by Code Name">
       <button @click="searchContacts">Search</button>
       <button @click="resetSearch">Reset</button>
     </div>
-    <h1>Contacts</h1>
+    <h1>Available contacts</h1>
     <ul>
       <li v-for="contact in contacts" :key="contact.id">
-        {{contact.id}}. {{ contact.firstName }} {{ contact.lastName }} => {{ contact.codeName }} voice: {{contact.phoneNumber}}
+        {{contact.id}}. {{ contact.firstName }} {{ contact.lastName }}  ► {{ contact.codeName }} ☎ {{contact.phoneNumber}}
       </li>
     </ul>
     <AddContactForm @contactAdded="handleContactAdded" />
