@@ -1,5 +1,6 @@
 package org.tims.aliasnetwork.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.tims.aliasnetwork.model.Contact;
 import org.tims.aliasnetwork.service.ContactService;
@@ -9,13 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/contacts")
+@RequiredArgsConstructor
 public class ContactController {
 
     private final ContactService contactService;
-
-    public ContactController(ContactService contactService) {
-        this.contactService = contactService;
-    }
 
     @GetMapping
     public List<Contact> getAllContacts() {

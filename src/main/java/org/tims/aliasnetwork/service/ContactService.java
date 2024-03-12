@@ -1,7 +1,7 @@
 package org.tims.aliasnetwork.service;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.tims.aliasnetwork.model.Contact;
 import org.tims.aliasnetwork.repository.ContactRepository;
@@ -9,13 +9,10 @@ import org.tims.aliasnetwork.repository.ContactRepository;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ContactService {
-    private final ContactRepository contactRepository;
 
-    @Autowired
-    public ContactService(ContactRepository contactRepository) {
-        this.contactRepository = contactRepository;
-    }
+    private final ContactRepository contactRepository;
 
     public List<Contact> getAllContacts() {
         return contactRepository.findAll();
