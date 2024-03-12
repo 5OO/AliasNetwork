@@ -16,22 +16,27 @@ public class ContactController {
     public ContactController(ContactService contactService) {
         this.contactService = contactService;
     }
+
     @GetMapping
     public List<Contact> getAllContacts() {
         return contactService.getAllContacts();
     }
+
     @PostMapping
     public Contact createContact(@Valid @RequestBody Contact contact) {
         return contactService.createContact(contact);
     }
+
     @GetMapping("/search/codeName/{codeName}")
     public List<Contact> getContactsByCodeName(@PathVariable String codeName) {
         return contactService.getContactsByCodeName(codeName);
     }
+
     @GetMapping("/search/firstName/{firstName}")
     public List<Contact> getContactsByFirstName(@PathVariable String firstName) {
         return contactService.getContactsByFirstName(firstName);
     }
+
     @GetMapping("/search/lastName/{lastName}")
     public List<Contact> getContactsByLastName(@PathVariable String lastName) {
         return contactService.getContactsByLastName(lastName);

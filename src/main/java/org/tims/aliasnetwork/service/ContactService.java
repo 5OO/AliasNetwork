@@ -16,6 +16,7 @@ public class ContactService {
     public ContactService(ContactRepository contactRepository) {
         this.contactRepository = contactRepository;
     }
+
     public List<Contact> getAllContacts() {
         return contactRepository.findAll();
     }
@@ -28,7 +29,7 @@ public class ContactService {
         return contactRepository.findAllByCodeNameContainingIgnoreCase(codeName);
     }
 
-public List<Contact> getContactsByFirstName(String firstName) {
+    public List<Contact> getContactsByFirstName(String firstName) {
         return contactRepository.findAllByFirstNameContainingIgnoreCase(firstName);
     }
 
